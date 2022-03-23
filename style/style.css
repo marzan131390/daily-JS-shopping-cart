@@ -7,7 +7,7 @@
     background-color: #fff;
     padding: 15px 20px;
     border-radius: 10px;
-   
+   margin-bottom: 20px;
 } 
 .center-item {
     display: flex;
@@ -20,8 +20,12 @@
 .cart-item h5 {
     padding-left: 30px;
 }
+.price-amount {
+    padding-right: 55px;
+}
 .cart-item .remove-item {
     width: 25px;
+   
 }
 .btn-default{
 	background-color: #fff;
@@ -36,4 +40,8 @@
 }
 .input-group {
     width: unset;
+}
+.amount-list{
+    text-align: right;
+    padding-right: 70px;
 }
