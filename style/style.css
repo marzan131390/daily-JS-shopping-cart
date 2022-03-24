@@ -48,3 +48,7 @@
 #checking-btn {
     float: right;
 }
+#mobile-plus, #mobile-minus, #cover-plus, #cover-minus {
+    font-size: 25px;
+    font-weight: bold;
+}

@@ -14,51 +14,39 @@ const firstRemove = document.getElementById("first-remove");
 const secondRemove = document.getElementById("second-remove")
 // let removeItem = document.querySelectorAll(".remove-item");
 
-
 //Function for increment or decrement value in input...
-function incrementOrDecrement(id, increment) {
-    let number = parseInt(id.value);
-    number = number + increment;
-    id.value = number;
-};
-//Function for adding or subtraction amount of price..
-function addingOrSubtraction(id, number) {
-    price = parseFloat(id.innerText);
-    price = price + number;
-    id.innerText = price;
-};
-//Function for subTotal Amount....
-function subTotalAmount(mId, cId) {
-    let subAmount = parseFloat(mId.innerText) + parseFloat(cId.innerText);
+function incrementOrDecrement(mobOrCovInputID, incrOrDecrNum, mobilPriID, mobOrCovPrice, mobPriID, covPriID, ) {
+    let number = parseInt(mobOrCovInputID.value);
+    let newNumber = number + incrOrDecrNum;
+    mobOrCovInputID.value = newNumber;
+    //Adding or Subtraction value for amount of price..
+    price = parseFloat(mobilPriID.innerText);
+    price = price + mobOrCovPrice;
+    mobilPriID.innerText = price;
+    //Calculating subtotal, vat and total value..
+    let subAmount = parseFloat(mobPriID.innerText) + parseFloat(covPriID.innerText);
     subTotal.innerText = subAmount;
     let totalVatAmount = (subAmount * 5) / 100;
     vatAmount.innerText = totalVatAmount;
     let overallAmount = subAmount + totalVatAmount;
     totalAmount.innerText = overallAmount;
-}
+};
+
 //Mobile Plus Button Event Handler Listener...
 mobilePlusBtn.addEventListener("click", function() {
-    incrementOrDecrement(mobileInput, 1);
-    addingOrSubtraction(mobilePrice, 1219);
-    subTotalAmount(mobilePrice, coverPrice);
+    incrementOrDecrement(mobileInput, 1, mobilePrice, 1219, mobilePrice, coverPrice, );
 });
 //Mobile Minus Button Event Handler Listener...
 mobileMinusBtn.addEventListener("click", function() {
-    incrementOrDecrement(mobileInput, -1);
-    addingOrSubtraction(mobilePrice, -1219);
-    subTotalAmount(mobilePrice, coverPrice);
+    incrementOrDecrement(mobileInput, -1,mobilePrice, -1219, mobilePrice, coverPrice, );
 });
 //Cover plus Button Event Handler listener...
 coverPlusBtn.addEventListener("click", function() {
-    incrementOrDecrement(coverInput, 1);
-    addingOrSubtraction(coverPrice, 61);
-    subTotalAmount(mobilePrice, coverPrice);
+    incrementOrDecrement(coverInput, 1, coverPrice, 61, mobilePrice, coverPrice, );
 });
 //Mobile Minus Button Event Handler Listener...
 coverMinusBtn.addEventListener("click", function() {
-    incrementOrDecrement(coverInput, -1);
-    addingOrSubtraction(coverPrice, -61);
-    subTotalAmount(mobilePrice, coverPrice);
+    incrementOrDecrement(coverInput, -1, coverPrice, -61, mobilePrice, coverPrice, );
 });
 
 //Remove item when clicked..
